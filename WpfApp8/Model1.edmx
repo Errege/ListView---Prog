@@ -1,0 +1,1917 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище WorldSkilModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AGENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME_COMPANY" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_TYPE" Type="int" Nullable="false" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="INN" Type="int" Nullable="false" />
+          <Property Name="KPP" Type="int" Nullable="false" />
+          <Property Name="DIRECTOR" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LOGO" Type="varbinary(max)" />
+          <Property Name="ID_SELL_PLACE" Type="int" Nullable="false" />
+          <Property Name="PRIORITY" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ANALYST">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_HISTORY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="APPLICATION">
+          <Key>
+            <PropertyRef Name="ID_OFFERS" />
+            <PropertyRef Name="ID_ORDERS" />
+          </Key>
+          <Property Name="ID_OFFERS" Type="int" Nullable="false" />
+          <Property Name="ID_ORDERS" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DOORS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_INDUSTRY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMAIL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_AGENT" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HISTORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_AGENT" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HISTORY_SUPPLIER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_SUPPLIER" Type="int" Nullable="false" />
+          <Property Name="ID_MATERIAL" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INDUSRY_MASTER">
+          <Key>
+            <PropertyRef Name="ID_INDUSTRY" />
+            <PropertyRef Name="ID_MASTER" />
+          </Key>
+          <Property Name="ID_INDUSTRY" Type="int" Nullable="false" />
+          <Property Name="ID_MASTER" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INDUSTRY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INDUSTRY_ANALYST">
+          <Key>
+            <PropertyRef Name="ID_INDUSTRY" />
+            <PropertyRef Name="ID_ANALYST" />
+          </Key>
+          <Property Name="ID_INDUSTRY" Type="int" Nullable="false" />
+          <Property Name="ID_ANALYST" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="INDUSTRY_MANAGER">
+          <Key>
+            <PropertyRef Name="ID_INDUSTRY" />
+            <PropertyRef Name="ID_MANAGER" />
+          </Key>
+          <Property Name="ID_INDUSTRY" Type="int" Nullable="false" />
+          <Property Name="ID_MANAGER" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MANAGER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MASTER_INDUSTRY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_SCHEDULE" Type="int" Nullable="false" />
+          <Property Name="FAMILY" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PROBLEM" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MATERIAL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_TYPE_MATERIAL" Type="int" />
+          <Property Name="ID_SUPPLIER" Type="int" />
+          <Property Name="QUANTITY_PACKAGING" Type="int" />
+          <Property Name="ID_UNIT_OF_MEASUREMENT" Type="int" />
+          <Property Name="QUANTITY_STOREHOSE" Type="int" />
+          <Property Name="MIN_QUANTITY" Type="int" />
+          <Property Name="DESCRIPTION" Type="varchar(max)" />
+          <Property Name="IMAGE" Type="varbinary(max)" />
+          <Property Name="PRICE" Type="int" />
+          <Property Name="OPERATION" Type="varchar" MaxLength="50" />
+          <Property Name="ID_PRODUCT" Type="int" />
+        </EntityType>
+        <EntityType Name="OFFERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_AGENT" Type="int" Nullable="false" />
+          <Property Name="ID_PRODUCT" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OPERATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ORDERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DATA" Type="date" Nullable="false" />
+          <Property Name="ID_MANAGER" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PHONE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NUMBER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_AGENT" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="ARTICLE" />
+          </Key>
+          <Property Name="ARTICLE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_TYPE_PRODUCT" Type="int" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar(max)" />
+          <Property Name="IMAGE" Type="varbinary(max)" />
+          <Property Name="MIN_PRICE" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SIZE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="WEIGHT_ORIGINAL" Type="int" Nullable="false" />
+          <Property Name="WEIGHT" Type="int" Nullable="false" />
+          <Property Name="QUALITY_CERTIFICATE" Type="varbinary(max)" />
+          <Property Name="ID_STANDART" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SCHEDULE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DATE" Type="date" Nullable="false" />
+          <Property Name="SHIFT" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SELL_PLACE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SHIPMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_STOCKMAN" Type="int" Nullable="false" />
+          <Property Name="ID_SUPPLIER" Type="int" Nullable="false" />
+          <Property Name="ID_MATERIAL" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STANDART">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STOCKMAN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SUPPLIER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="INN" Type="int" Nullable="false" />
+          <Property Name="ID_TYPE_SUPPLIER" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TURNSTILE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_INDUSTRY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TYPE_AGENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TYPE_MATERIAL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TYPE_PRODUCT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TYPE_SUPPLIER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UNIT_OF_MEASUREMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AGENT_SELL_PLACE">
+          <End Role="SELL_PLACE" Type="Self.SELL_PLACE" Multiplicity="1" />
+          <End Role="AGENT" Type="Self.AGENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SELL_PLACE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AGENT">
+              <PropertyRef Name="ID_SELL_PLACE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AGENT_TYPE_AGENT">
+          <End Role="TYPE_AGENT" Type="Self.TYPE_AGENT" Multiplicity="1" />
+          <End Role="AGENT" Type="Self.AGENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_AGENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AGENT">
+              <PropertyRef Name="ID_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ANALYST_HISTORY">
+          <End Role="HISTORY" Type="Self.HISTORY" Multiplicity="1" />
+          <End Role="ANALYST" Type="Self.ANALYST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HISTORY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ANALYST">
+              <PropertyRef Name="ID_HISTORY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APPLICATION_OFFERS">
+          <End Role="OFFERS" Type="Self.OFFERS" Multiplicity="1" />
+          <End Role="APPLICATION" Type="Self.APPLICATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OFFERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APPLICATION">
+              <PropertyRef Name="ID_OFFERS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APPLICATION_ORDERS">
+          <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="1" />
+          <End Role="APPLICATION" Type="Self.APPLICATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="APPLICATION">
+              <PropertyRef Name="ID_ORDERS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOORS_INDUSTRY">
+          <End Role="INDUSTRY" Type="Self.INDUSTRY" Multiplicity="1" />
+          <End Role="DOORS" Type="Self.DOORS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INDUSTRY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DOORS">
+              <PropertyRef Name="ID_INDUSTRY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMAIL_AGENT">
+          <End Role="AGENT" Type="Self.AGENT" Multiplicity="1" />
+          <End Role="EMAIL" Type="Self.EMAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AGENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMAIL">
+              <PropertyRef Name="ID_AGENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORY_AGENT">
+          <End Role="AGENT" Type="Self.AGENT" Multiplicity="1" />
+          <End Role="HISTORY" Type="Self.HISTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AGENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HISTORY">
+              <PropertyRef Name="ID_AGENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORY_SUPPLIER_MATERIAL">
+          <End Role="MATERIAL" Type="Self.MATERIAL" Multiplicity="1" />
+          <End Role="HISTORY_SUPPLIER" Type="Self.HISTORY_SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HISTORY_SUPPLIER">
+              <PropertyRef Name="ID_MATERIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORY_SUPPLIER_SUPPLIER">
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="1" />
+          <End Role="HISTORY_SUPPLIER" Type="Self.HISTORY_SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HISTORY_SUPPLIER">
+              <PropertyRef Name="ID_SUPPLIER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INDUSRY_MASTER_INDUSTRY">
+          <End Role="INDUSTRY" Type="Self.INDUSTRY" Multiplicity="1" />
+          <End Role="INDUSRY_MASTER" Type="Self.INDUSRY_MASTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INDUSTRY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INDUSRY_MASTER">
+              <PropertyRef Name="ID_INDUSTRY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INDUSRY_MASTER_MASTER_INDUSTRY">
+          <End Role="MASTER_INDUSTRY" Type="Self.MASTER_INDUSTRY" Multiplicity="1" />
+          <End Role="INDUSRY_MASTER" Type="Self.INDUSRY_MASTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MASTER_INDUSTRY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INDUSRY_MASTER">
+              <PropertyRef Name="ID_MASTER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INDUSTRY_ANALYST_ANALYST">
+          <End Role="ANALYST" Type="Self.ANALYST" Multiplicity="1" />
+          <End Role="INDUSTRY_ANALYST" Type="Self.INDUSTRY_ANALYST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ANALYST">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INDUSTRY_ANALYST">
+              <PropertyRef Name="ID_ANALYST" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INDUSTRY_ANALYST_INDUSTRY">
+          <End Role="INDUSTRY" Type="Self.INDUSTRY" Multiplicity="1" />
+          <End Role="INDUSTRY_ANALYST" Type="Self.INDUSTRY_ANALYST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INDUSTRY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INDUSTRY_ANALYST">
+              <PropertyRef Name="ID_INDUSTRY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INDUSTRY_MANAGER_INDUSTRY">
+          <End Role="INDUSTRY" Type="Self.INDUSTRY" Multiplicity="1" />
+          <End Role="INDUSTRY_MANAGER" Type="Self.INDUSTRY_MANAGER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INDUSTRY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INDUSTRY_MANAGER">
+              <PropertyRef Name="ID_INDUSTRY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INDUSTRY_MANAGER_MANAGER">
+          <End Role="MANAGER" Type="Self.MANAGER" Multiplicity="1" />
+          <End Role="INDUSTRY_MANAGER" Type="Self.INDUSTRY_MANAGER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MANAGER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INDUSTRY_MANAGER">
+              <PropertyRef Name="ID_MANAGER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MASTER_INDUSTRY_SCHEDULE">
+          <End Role="SCHEDULE" Type="Self.SCHEDULE" Multiplicity="1" />
+          <End Role="MASTER_INDUSTRY" Type="Self.MASTER_INDUSTRY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SCHEDULE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MASTER_INDUSTRY">
+              <PropertyRef Name="ID_SCHEDULE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATERIAL_PRODUCT">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
+          <End Role="MATERIAL" Type="Self.MATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="ARTICLE" />
+            </Principal>
+            <Dependent Role="MATERIAL">
+              <PropertyRef Name="ID_PRODUCT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATERIAL_SUPPLIER">
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="0..1" />
+          <End Role="MATERIAL" Type="Self.MATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MATERIAL">
+              <PropertyRef Name="ID_SUPPLIER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATERIAL_TYPE_MATERIAL">
+          <End Role="TYPE_MATERIAL" Type="Self.TYPE_MATERIAL" Multiplicity="0..1" />
+          <End Role="MATERIAL" Type="Self.MATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_MATERIAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MATERIAL">
+              <PropertyRef Name="ID_TYPE_MATERIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATERIAL_UNIT_OF_MEASUREMENT">
+          <End Role="UNIT_OF_MEASUREMENT" Type="Self.UNIT_OF_MEASUREMENT" Multiplicity="0..1" />
+          <End Role="MATERIAL" Type="Self.MATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UNIT_OF_MEASUREMENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MATERIAL">
+              <PropertyRef Name="ID_UNIT_OF_MEASUREMENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OFFERS_AGENT">
+          <End Role="AGENT" Type="Self.AGENT" Multiplicity="1" />
+          <End Role="OFFERS" Type="Self.OFFERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AGENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OFFERS">
+              <PropertyRef Name="ID_AGENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OFFERS_PRODUCT">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="OFFERS" Type="Self.OFFERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="ARTICLE" />
+            </Principal>
+            <Dependent Role="OFFERS">
+              <PropertyRef Name="ID_PRODUCT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERS_MANAGER">
+          <End Role="MANAGER" Type="Self.MANAGER" Multiplicity="1" />
+          <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MANAGER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ORDERS">
+              <PropertyRef Name="ID_MANAGER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHONE_AGENT">
+          <End Role="AGENT" Type="Self.AGENT" Multiplicity="1" />
+          <End Role="PHONE" Type="Self.PHONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AGENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PHONE">
+              <PropertyRef Name="ID_AGENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCT_STANDART">
+          <End Role="STANDART" Type="Self.STANDART" Multiplicity="1" />
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STANDART">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCT">
+              <PropertyRef Name="ID_STANDART" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCT_TYPE_PRODUCT">
+          <End Role="TYPE_PRODUCT" Type="Self.TYPE_PRODUCT" Multiplicity="1" />
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_PRODUCT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCT">
+              <PropertyRef Name="ID_TYPE_PRODUCT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SHIPMENT_MATERIAL">
+          <End Role="MATERIAL" Type="Self.MATERIAL" Multiplicity="1" />
+          <End Role="SHIPMENT" Type="Self.SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHIPMENT">
+              <PropertyRef Name="ID_MATERIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SHIPMENT_STOCKMAN">
+          <End Role="STOCKMAN" Type="Self.STOCKMAN" Multiplicity="1" />
+          <End Role="SHIPMENT" Type="Self.SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOCKMAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHIPMENT">
+              <PropertyRef Name="ID_STOCKMAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SHIPMENT_SUPPLIER">
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="1" />
+          <End Role="SHIPMENT" Type="Self.SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHIPMENT">
+              <PropertyRef Name="ID_STOCKMAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUPPLIER_TYPE_SUPPLIER">
+          <End Role="TYPE_SUPPLIER" Type="Self.TYPE_SUPPLIER" Multiplicity="1" />
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_SUPPLIER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SUPPLIER">
+              <PropertyRef Name="ID_TYPE_SUPPLIER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TURNSTILE_INDUSTRY">
+          <End Role="INDUSTRY" Type="Self.INDUSTRY" Multiplicity="1" />
+          <End Role="TURNSTILE" Type="Self.TURNSTILE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INDUSTRY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TURNSTILE">
+              <PropertyRef Name="ID_INDUSTRY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище WorldSkilModelContainer">
+          <EntitySet Name="AGENT" EntityType="Self.AGENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ANALYST" EntityType="Self.ANALYST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APPLICATION" EntityType="Self.APPLICATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOORS" EntityType="Self.DOORS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMAIL" EntityType="Self.EMAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HISTORY" EntityType="Self.HISTORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HISTORY_SUPPLIER" EntityType="Self.HISTORY_SUPPLIER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INDUSRY_MASTER" EntityType="Self.INDUSRY_MASTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INDUSTRY" EntityType="Self.INDUSTRY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INDUSTRY_ANALYST" EntityType="Self.INDUSTRY_ANALYST" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INDUSTRY_MANAGER" EntityType="Self.INDUSTRY_MANAGER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MANAGER" EntityType="Self.MANAGER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MASTER_INDUSTRY" EntityType="Self.MASTER_INDUSTRY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MATERIAL" EntityType="Self.MATERIAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OFFERS" EntityType="Self.OFFERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OPERATION" EntityType="Self.OPERATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORDERS" EntityType="Self.ORDERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHONE" EntityType="Self.PHONE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SCHEDULE" EntityType="Self.SCHEDULE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SELL_PLACE" EntityType="Self.SELL_PLACE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SHIPMENT" EntityType="Self.SHIPMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STANDART" EntityType="Self.STANDART" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STOCKMAN" EntityType="Self.STOCKMAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUPPLIER" EntityType="Self.SUPPLIER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TURNSTILE" EntityType="Self.TURNSTILE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TYPE_AGENT" EntityType="Self.TYPE_AGENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TYPE_MATERIAL" EntityType="Self.TYPE_MATERIAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TYPE_PRODUCT" EntityType="Self.TYPE_PRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TYPE_SUPPLIER" EntityType="Self.TYPE_SUPPLIER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UNIT_OF_MEASUREMENT" EntityType="Self.UNIT_OF_MEASUREMENT" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AGENT_SELL_PLACE" Association="Self.FK_AGENT_SELL_PLACE">
+            <End Role="SELL_PLACE" EntitySet="SELL_PLACE" />
+            <End Role="AGENT" EntitySet="AGENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AGENT_TYPE_AGENT" Association="Self.FK_AGENT_TYPE_AGENT">
+            <End Role="TYPE_AGENT" EntitySet="TYPE_AGENT" />
+            <End Role="AGENT" EntitySet="AGENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ANALYST_HISTORY" Association="Self.FK_ANALYST_HISTORY">
+            <End Role="HISTORY" EntitySet="HISTORY" />
+            <End Role="ANALYST" EntitySet="ANALYST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APPLICATION_OFFERS" Association="Self.FK_APPLICATION_OFFERS">
+            <End Role="OFFERS" EntitySet="OFFERS" />
+            <End Role="APPLICATION" EntitySet="APPLICATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APPLICATION_ORDERS" Association="Self.FK_APPLICATION_ORDERS">
+            <End Role="ORDERS" EntitySet="ORDERS" />
+            <End Role="APPLICATION" EntitySet="APPLICATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOORS_INDUSTRY" Association="Self.FK_DOORS_INDUSTRY">
+            <End Role="INDUSTRY" EntitySet="INDUSTRY" />
+            <End Role="DOORS" EntitySet="DOORS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMAIL_AGENT" Association="Self.FK_EMAIL_AGENT">
+            <End Role="AGENT" EntitySet="AGENT" />
+            <End Role="EMAIL" EntitySet="EMAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORY_AGENT" Association="Self.FK_HISTORY_AGENT">
+            <End Role="AGENT" EntitySet="AGENT" />
+            <End Role="HISTORY" EntitySet="HISTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORY_SUPPLIER_MATERIAL" Association="Self.FK_HISTORY_SUPPLIER_MATERIAL">
+            <End Role="MATERIAL" EntitySet="MATERIAL" />
+            <End Role="HISTORY_SUPPLIER" EntitySet="HISTORY_SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORY_SUPPLIER_SUPPLIER" Association="Self.FK_HISTORY_SUPPLIER_SUPPLIER">
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+            <End Role="HISTORY_SUPPLIER" EntitySet="HISTORY_SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INDUSRY_MASTER_INDUSTRY" Association="Self.FK_INDUSRY_MASTER_INDUSTRY">
+            <End Role="INDUSTRY" EntitySet="INDUSTRY" />
+            <End Role="INDUSRY_MASTER" EntitySet="INDUSRY_MASTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INDUSRY_MASTER_MASTER_INDUSTRY" Association="Self.FK_INDUSRY_MASTER_MASTER_INDUSTRY">
+            <End Role="MASTER_INDUSTRY" EntitySet="MASTER_INDUSTRY" />
+            <End Role="INDUSRY_MASTER" EntitySet="INDUSRY_MASTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INDUSTRY_ANALYST_ANALYST" Association="Self.FK_INDUSTRY_ANALYST_ANALYST">
+            <End Role="ANALYST" EntitySet="ANALYST" />
+            <End Role="INDUSTRY_ANALYST" EntitySet="INDUSTRY_ANALYST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INDUSTRY_ANALYST_INDUSTRY" Association="Self.FK_INDUSTRY_ANALYST_INDUSTRY">
+            <End Role="INDUSTRY" EntitySet="INDUSTRY" />
+            <End Role="INDUSTRY_ANALYST" EntitySet="INDUSTRY_ANALYST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INDUSTRY_MANAGER_INDUSTRY" Association="Self.FK_INDUSTRY_MANAGER_INDUSTRY">
+            <End Role="INDUSTRY" EntitySet="INDUSTRY" />
+            <End Role="INDUSTRY_MANAGER" EntitySet="INDUSTRY_MANAGER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INDUSTRY_MANAGER_MANAGER" Association="Self.FK_INDUSTRY_MANAGER_MANAGER">
+            <End Role="MANAGER" EntitySet="MANAGER" />
+            <End Role="INDUSTRY_MANAGER" EntitySet="INDUSTRY_MANAGER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MASTER_INDUSTRY_SCHEDULE" Association="Self.FK_MASTER_INDUSTRY_SCHEDULE">
+            <End Role="SCHEDULE" EntitySet="SCHEDULE" />
+            <End Role="MASTER_INDUSTRY" EntitySet="MASTER_INDUSTRY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATERIAL_PRODUCT" Association="Self.FK_MATERIAL_PRODUCT">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="MATERIAL" EntitySet="MATERIAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATERIAL_SUPPLIER" Association="Self.FK_MATERIAL_SUPPLIER">
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+            <End Role="MATERIAL" EntitySet="MATERIAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATERIAL_TYPE_MATERIAL" Association="Self.FK_MATERIAL_TYPE_MATERIAL">
+            <End Role="TYPE_MATERIAL" EntitySet="TYPE_MATERIAL" />
+            <End Role="MATERIAL" EntitySet="MATERIAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATERIAL_UNIT_OF_MEASUREMENT" Association="Self.FK_MATERIAL_UNIT_OF_MEASUREMENT">
+            <End Role="UNIT_OF_MEASUREMENT" EntitySet="UNIT_OF_MEASUREMENT" />
+            <End Role="MATERIAL" EntitySet="MATERIAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OFFERS_AGENT" Association="Self.FK_OFFERS_AGENT">
+            <End Role="AGENT" EntitySet="AGENT" />
+            <End Role="OFFERS" EntitySet="OFFERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OFFERS_PRODUCT" Association="Self.FK_OFFERS_PRODUCT">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="OFFERS" EntitySet="OFFERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERS_MANAGER" Association="Self.FK_ORDERS_MANAGER">
+            <End Role="MANAGER" EntitySet="MANAGER" />
+            <End Role="ORDERS" EntitySet="ORDERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHONE_AGENT" Association="Self.FK_PHONE_AGENT">
+            <End Role="AGENT" EntitySet="AGENT" />
+            <End Role="PHONE" EntitySet="PHONE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCT_STANDART" Association="Self.FK_PRODUCT_STANDART">
+            <End Role="STANDART" EntitySet="STANDART" />
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCT_TYPE_PRODUCT" Association="Self.FK_PRODUCT_TYPE_PRODUCT">
+            <End Role="TYPE_PRODUCT" EntitySet="TYPE_PRODUCT" />
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SHIPMENT_MATERIAL" Association="Self.FK_SHIPMENT_MATERIAL">
+            <End Role="MATERIAL" EntitySet="MATERIAL" />
+            <End Role="SHIPMENT" EntitySet="SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SHIPMENT_STOCKMAN" Association="Self.FK_SHIPMENT_STOCKMAN">
+            <End Role="STOCKMAN" EntitySet="STOCKMAN" />
+            <End Role="SHIPMENT" EntitySet="SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SHIPMENT_SUPPLIER" Association="Self.FK_SHIPMENT_SUPPLIER">
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+            <End Role="SHIPMENT" EntitySet="SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUPPLIER_TYPE_SUPPLIER" Association="Self.FK_SUPPLIER_TYPE_SUPPLIER">
+            <End Role="TYPE_SUPPLIER" EntitySet="TYPE_SUPPLIER" />
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TURNSTILE_INDUSTRY" Association="Self.FK_TURNSTILE_INDUSTRY">
+            <End Role="INDUSTRY" EntitySet="INDUSTRY" />
+            <End Role="TURNSTILE" EntitySet="TURNSTILE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WorldSkilModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AGENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME_COMPANY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_TYPE" Type="Int32" Nullable="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INN" Type="Int32" Nullable="false" />
+          <Property Name="KPP" Type="Int32" Nullable="false" />
+          <Property Name="DIRECTOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LOGO" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ID_SELL_PLACE" Type="Int32" Nullable="false" />
+          <Property Name="PRIORITY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SELL_PLACE" Relationship="Self.FK_AGENT_SELL_PLACE" FromRole="AGENT" ToRole="SELL_PLACE" />
+          <NavigationProperty Name="TYPE_AGENT" Relationship="Self.FK_AGENT_TYPE_AGENT" FromRole="AGENT" ToRole="TYPE_AGENT" />
+          <NavigationProperty Name="EMAIL" Relationship="Self.FK_EMAIL_AGENT" FromRole="AGENT" ToRole="EMAIL" />
+          <NavigationProperty Name="HISTORY" Relationship="Self.FK_HISTORY_AGENT" FromRole="AGENT" ToRole="HISTORY" />
+          <NavigationProperty Name="OFFERS" Relationship="Self.FK_OFFERS_AGENT" FromRole="AGENT" ToRole="OFFERS" />
+          <NavigationProperty Name="PHONE" Relationship="Self.FK_PHONE_AGENT" FromRole="AGENT" ToRole="PHONE" />
+        </EntityType>
+        <EntityType Name="ANALYST">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_HISTORY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="HISTORY" Relationship="Self.FK_ANALYST_HISTORY" FromRole="ANALYST" ToRole="HISTORY" />
+          <NavigationProperty Name="INDUSTRY" Relationship="Self.INDUSTRY_ANALYST" FromRole="ANALYST" ToRole="INDUSTRY" />
+        </EntityType>
+        <EntityType Name="DOORS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_INDUSTRY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="INDUSTRY" Relationship="Self.FK_DOORS_INDUSTRY" FromRole="DOORS" ToRole="INDUSTRY" />
+        </EntityType>
+        <EntityType Name="EMAIL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_AGENT" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AGENT" Relationship="Self.FK_EMAIL_AGENT" FromRole="EMAIL" ToRole="AGENT" />
+        </EntityType>
+        <EntityType Name="HISTORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_AGENT" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AGENT" Relationship="Self.FK_HISTORY_AGENT" FromRole="HISTORY" ToRole="AGENT" />
+          <NavigationProperty Name="ANALYST" Relationship="Self.FK_ANALYST_HISTORY" FromRole="HISTORY" ToRole="ANALYST" />
+        </EntityType>
+        <EntityType Name="HISTORY_SUPPLIER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_SUPPLIER" Type="Int32" Nullable="false" />
+          <Property Name="ID_MATERIAL" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MATERIAL" Relationship="Self.FK_HISTORY_SUPPLIER_MATERIAL" FromRole="HISTORY_SUPPLIER" ToRole="MATERIAL" />
+          <NavigationProperty Name="SUPPLIER" Relationship="Self.FK_HISTORY_SUPPLIER_SUPPLIER" FromRole="HISTORY_SUPPLIER" ToRole="SUPPLIER" />
+        </EntityType>
+        <EntityType Name="INDUSTRY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DOORS" Relationship="Self.FK_DOORS_INDUSTRY" FromRole="INDUSTRY" ToRole="DOORS" />
+          <NavigationProperty Name="TURNSTILE" Relationship="Self.FK_TURNSTILE_INDUSTRY" FromRole="INDUSTRY" ToRole="TURNSTILE" />
+          <NavigationProperty Name="MASTER_INDUSTRY" Relationship="Self.INDUSRY_MASTER" FromRole="INDUSTRY" ToRole="MASTER_INDUSTRY" />
+          <NavigationProperty Name="ANALYST" Relationship="Self.INDUSTRY_ANALYST" FromRole="INDUSTRY" ToRole="ANALYST" />
+          <NavigationProperty Name="MANAGER" Relationship="Self.INDUSTRY_MANAGER" FromRole="INDUSTRY" ToRole="MANAGER" />
+        </EntityType>
+        <EntityType Name="MANAGER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ORDERS" Relationship="Self.FK_ORDERS_MANAGER" FromRole="MANAGER" ToRole="ORDERS" />
+          <NavigationProperty Name="INDUSTRY" Relationship="Self.INDUSTRY_MANAGER" FromRole="MANAGER" ToRole="INDUSTRY" />
+        </EntityType>
+        <EntityType Name="MASTER_INDUSTRY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_SCHEDULE" Type="Int32" Nullable="false" />
+          <Property Name="FAMILY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PROBLEM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SCHEDULE" Relationship="Self.FK_MASTER_INDUSTRY_SCHEDULE" FromRole="MASTER_INDUSTRY" ToRole="SCHEDULE" />
+          <NavigationProperty Name="INDUSTRY" Relationship="Self.INDUSRY_MASTER" FromRole="MASTER_INDUSTRY" ToRole="INDUSTRY" />
+        </EntityType>
+        <EntityType Name="MATERIAL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_TYPE_MATERIAL" Type="Int32" />
+          <Property Name="ID_SUPPLIER" Type="Int32" />
+          <Property Name="QUANTITY_PACKAGING" Type="Int32" />
+          <Property Name="ID_UNIT_OF_MEASUREMENT" Type="Int32" />
+          <Property Name="QUANTITY_STOREHOSE" Type="Int32" />
+          <Property Name="MIN_QUANTITY" Type="Int32" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PRICE" Type="Int32" />
+          <Property Name="OPERATION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_PRODUCT" Type="Int32" />
+          <NavigationProperty Name="HISTORY_SUPPLIER" Relationship="Self.FK_HISTORY_SUPPLIER_MATERIAL" FromRole="MATERIAL" ToRole="HISTORY_SUPPLIER" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK_MATERIAL_PRODUCT" FromRole="MATERIAL" ToRole="PRODUCT" />
+          <NavigationProperty Name="SUPPLIER" Relationship="Self.FK_MATERIAL_SUPPLIER" FromRole="MATERIAL" ToRole="SUPPLIER" />
+          <NavigationProperty Name="TYPE_MATERIAL" Relationship="Self.FK_MATERIAL_TYPE_MATERIAL" FromRole="MATERIAL" ToRole="TYPE_MATERIAL" />
+          <NavigationProperty Name="UNIT_OF_MEASUREMENT" Relationship="Self.FK_MATERIAL_UNIT_OF_MEASUREMENT" FromRole="MATERIAL" ToRole="UNIT_OF_MEASUREMENT" />
+          <NavigationProperty Name="SHIPMENT" Relationship="Self.FK_SHIPMENT_MATERIAL" FromRole="MATERIAL" ToRole="SHIPMENT" />
+        </EntityType>
+        <EntityType Name="OFFERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_AGENT" Type="Int32" Nullable="false" />
+          <Property Name="ID_PRODUCT" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AGENT" Relationship="Self.FK_OFFERS_AGENT" FromRole="OFFERS" ToRole="AGENT" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK_OFFERS_PRODUCT" FromRole="OFFERS" ToRole="PRODUCT" />
+          <NavigationProperty Name="ORDERS" Relationship="Self.APPLICATION" FromRole="OFFERS" ToRole="ORDERS" />
+        </EntityType>
+        <EntityType Name="OPERATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ORDERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DATA" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_MANAGER" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MANAGER" Relationship="Self.FK_ORDERS_MANAGER" FromRole="ORDERS" ToRole="MANAGER" />
+          <NavigationProperty Name="OFFERS" Relationship="Self.APPLICATION" FromRole="ORDERS" ToRole="OFFERS" />
+        </EntityType>
+        <EntityType Name="PHONE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_AGENT" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AGENT" Relationship="Self.FK_PHONE_AGENT" FromRole="PHONE" ToRole="AGENT" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="ARTICLE" />
+          </Key>
+          <Property Name="ARTICLE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_TYPE_PRODUCT" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="MIN_PRICE" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SIZE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WEIGHT_ORIGINAL" Type="Int32" Nullable="false" />
+          <Property Name="WEIGHT" Type="Int32" Nullable="false" />
+          <Property Name="QUALITY_CERTIFICATE" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ID_STANDART" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MATERIAL" Relationship="Self.FK_MATERIAL_PRODUCT" FromRole="PRODUCT" ToRole="MATERIAL" />
+          <NavigationProperty Name="OFFERS" Relationship="Self.FK_OFFERS_PRODUCT" FromRole="PRODUCT" ToRole="OFFERS" />
+          <NavigationProperty Name="STANDART" Relationship="Self.FK_PRODUCT_STANDART" FromRole="PRODUCT" ToRole="STANDART" />
+          <NavigationProperty Name="TYPE_PRODUCT" Relationship="Self.FK_PRODUCT_TYPE_PRODUCT" FromRole="PRODUCT" ToRole="TYPE_PRODUCT" />
+        </EntityType>
+        <EntityType Name="SCHEDULE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SHIFT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MASTER_INDUSTRY" Relationship="Self.FK_MASTER_INDUSTRY_SCHEDULE" FromRole="SCHEDULE" ToRole="MASTER_INDUSTRY" />
+        </EntityType>
+        <EntityType Name="SELL_PLACE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AGENT" Relationship="Self.FK_AGENT_SELL_PLACE" FromRole="SELL_PLACE" ToRole="AGENT" />
+        </EntityType>
+        <EntityType Name="SHIPMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_STOCKMAN" Type="Int32" Nullable="false" />
+          <Property Name="ID_SUPPLIER" Type="Int32" Nullable="false" />
+          <Property Name="ID_MATERIAL" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MATERIAL" Relationship="Self.FK_SHIPMENT_MATERIAL" FromRole="SHIPMENT" ToRole="MATERIAL" />
+          <NavigationProperty Name="STOCKMAN" Relationship="Self.FK_SHIPMENT_STOCKMAN" FromRole="SHIPMENT" ToRole="STOCKMAN" />
+          <NavigationProperty Name="SUPPLIER" Relationship="Self.FK_SHIPMENT_SUPPLIER" FromRole="SHIPMENT" ToRole="SUPPLIER" />
+        </EntityType>
+        <EntityType Name="STANDART">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK_PRODUCT_STANDART" FromRole="STANDART" ToRole="PRODUCT" />
+        </EntityType>
+        <EntityType Name="STOCKMAN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SHIPMENT" Relationship="Self.FK_SHIPMENT_STOCKMAN" FromRole="STOCKMAN" ToRole="SHIPMENT" />
+        </EntityType>
+        <EntityType Name="SUPPLIER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INN" Type="Int32" Nullable="false" />
+          <Property Name="ID_TYPE_SUPPLIER" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="HISTORY_SUPPLIER" Relationship="Self.FK_HISTORY_SUPPLIER_SUPPLIER" FromRole="SUPPLIER" ToRole="HISTORY_SUPPLIER" />
+          <NavigationProperty Name="MATERIAL" Relationship="Self.FK_MATERIAL_SUPPLIER" FromRole="SUPPLIER" ToRole="MATERIAL" />
+          <NavigationProperty Name="SHIPMENT" Relationship="Self.FK_SHIPMENT_SUPPLIER" FromRole="SUPPLIER" ToRole="SHIPMENT" />
+          <NavigationProperty Name="TYPE_SUPPLIER" Relationship="Self.FK_SUPPLIER_TYPE_SUPPLIER" FromRole="SUPPLIER" ToRole="TYPE_SUPPLIER" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TURNSTILE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_INDUSTRY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="INDUSTRY" Relationship="Self.FK_TURNSTILE_INDUSTRY" FromRole="TURNSTILE" ToRole="INDUSTRY" />
+        </EntityType>
+        <EntityType Name="TYPE_AGENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AGENT" Relationship="Self.FK_AGENT_TYPE_AGENT" FromRole="TYPE_AGENT" ToRole="AGENT" />
+        </EntityType>
+        <EntityType Name="TYPE_MATERIAL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MATERIAL" Relationship="Self.FK_MATERIAL_TYPE_MATERIAL" FromRole="TYPE_MATERIAL" ToRole="MATERIAL" />
+        </EntityType>
+        <EntityType Name="TYPE_PRODUCT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK_PRODUCT_TYPE_PRODUCT" FromRole="TYPE_PRODUCT" ToRole="PRODUCT" />
+        </EntityType>
+        <EntityType Name="TYPE_SUPPLIER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SUPPLIER" Relationship="Self.FK_SUPPLIER_TYPE_SUPPLIER" FromRole="TYPE_SUPPLIER" ToRole="SUPPLIER" />
+        </EntityType>
+        <EntityType Name="UNIT_OF_MEASUREMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MATERIAL" Relationship="Self.FK_MATERIAL_UNIT_OF_MEASUREMENT" FromRole="UNIT_OF_MEASUREMENT" ToRole="MATERIAL" />
+        </EntityType>
+        <Association Name="FK_AGENT_SELL_PLACE">
+          <End Role="SELL_PLACE" Type="Self.SELL_PLACE" Multiplicity="1" />
+          <End Role="AGENT" Type="Self.AGENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SELL_PLACE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AGENT">
+              <PropertyRef Name="ID_SELL_PLACE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AGENT_TYPE_AGENT">
+          <End Role="TYPE_AGENT" Type="Self.TYPE_AGENT" Multiplicity="1" />
+          <End Role="AGENT" Type="Self.AGENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_AGENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AGENT">
+              <PropertyRef Name="ID_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMAIL_AGENT">
+          <End Role="AGENT" Type="Self.AGENT" Multiplicity="1" />
+          <End Role="EMAIL" Type="Self.EMAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AGENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EMAIL">
+              <PropertyRef Name="ID_AGENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORY_AGENT">
+          <End Role="AGENT" Type="Self.AGENT" Multiplicity="1" />
+          <End Role="HISTORY" Type="Self.HISTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AGENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HISTORY">
+              <PropertyRef Name="ID_AGENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OFFERS_AGENT">
+          <End Role="AGENT" Type="Self.AGENT" Multiplicity="1" />
+          <End Role="OFFERS" Type="Self.OFFERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AGENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OFFERS">
+              <PropertyRef Name="ID_AGENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHONE_AGENT">
+          <End Role="AGENT" Type="Self.AGENT" Multiplicity="1" />
+          <End Role="PHONE" Type="Self.PHONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AGENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PHONE">
+              <PropertyRef Name="ID_AGENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ANALYST_HISTORY">
+          <End Role="HISTORY" Type="Self.HISTORY" Multiplicity="1" />
+          <End Role="ANALYST" Type="Self.ANALYST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HISTORY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ANALYST">
+              <PropertyRef Name="ID_HISTORY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOORS_INDUSTRY">
+          <End Role="INDUSTRY" Type="Self.INDUSTRY" Multiplicity="1" />
+          <End Role="DOORS" Type="Self.DOORS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INDUSTRY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DOORS">
+              <PropertyRef Name="ID_INDUSTRY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORY_SUPPLIER_MATERIAL">
+          <End Role="MATERIAL" Type="Self.MATERIAL" Multiplicity="1" />
+          <End Role="HISTORY_SUPPLIER" Type="Self.HISTORY_SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HISTORY_SUPPLIER">
+              <PropertyRef Name="ID_MATERIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORY_SUPPLIER_SUPPLIER">
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="1" />
+          <End Role="HISTORY_SUPPLIER" Type="Self.HISTORY_SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HISTORY_SUPPLIER">
+              <PropertyRef Name="ID_SUPPLIER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TURNSTILE_INDUSTRY">
+          <End Role="INDUSTRY" Type="Self.INDUSTRY" Multiplicity="1" />
+          <End Role="TURNSTILE" Type="Self.TURNSTILE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INDUSTRY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TURNSTILE">
+              <PropertyRef Name="ID_INDUSTRY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDERS_MANAGER">
+          <End Role="MANAGER" Type="Self.MANAGER" Multiplicity="1" />
+          <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MANAGER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ORDERS">
+              <PropertyRef Name="ID_MANAGER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MASTER_INDUSTRY_SCHEDULE">
+          <End Role="SCHEDULE" Type="Self.SCHEDULE" Multiplicity="1" />
+          <End Role="MASTER_INDUSTRY" Type="Self.MASTER_INDUSTRY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SCHEDULE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MASTER_INDUSTRY">
+              <PropertyRef Name="ID_SCHEDULE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATERIAL_PRODUCT">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
+          <End Role="MATERIAL" Type="Self.MATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="ARTICLE" />
+            </Principal>
+            <Dependent Role="MATERIAL">
+              <PropertyRef Name="ID_PRODUCT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATERIAL_SUPPLIER">
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="0..1" />
+          <End Role="MATERIAL" Type="Self.MATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MATERIAL">
+              <PropertyRef Name="ID_SUPPLIER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATERIAL_TYPE_MATERIAL">
+          <End Role="TYPE_MATERIAL" Type="Self.TYPE_MATERIAL" Multiplicity="0..1" />
+          <End Role="MATERIAL" Type="Self.MATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_MATERIAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MATERIAL">
+              <PropertyRef Name="ID_TYPE_MATERIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MATERIAL_UNIT_OF_MEASUREMENT">
+          <End Role="UNIT_OF_MEASUREMENT" Type="Self.UNIT_OF_MEASUREMENT" Multiplicity="0..1" />
+          <End Role="MATERIAL" Type="Self.MATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UNIT_OF_MEASUREMENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MATERIAL">
+              <PropertyRef Name="ID_UNIT_OF_MEASUREMENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SHIPMENT_MATERIAL">
+          <End Role="MATERIAL" Type="Self.MATERIAL" Multiplicity="1" />
+          <End Role="SHIPMENT" Type="Self.SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHIPMENT">
+              <PropertyRef Name="ID_MATERIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OFFERS_PRODUCT">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
+          <End Role="OFFERS" Type="Self.OFFERS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="ARTICLE" />
+            </Principal>
+            <Dependent Role="OFFERS">
+              <PropertyRef Name="ID_PRODUCT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCT_STANDART">
+          <End Role="STANDART" Type="Self.STANDART" Multiplicity="1" />
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STANDART">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCT">
+              <PropertyRef Name="ID_STANDART" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCT_TYPE_PRODUCT">
+          <End Role="TYPE_PRODUCT" Type="Self.TYPE_PRODUCT" Multiplicity="1" />
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_PRODUCT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCT">
+              <PropertyRef Name="ID_TYPE_PRODUCT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SHIPMENT_STOCKMAN">
+          <End Role="STOCKMAN" Type="Self.STOCKMAN" Multiplicity="1" />
+          <End Role="SHIPMENT" Type="Self.SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOCKMAN">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHIPMENT">
+              <PropertyRef Name="ID_STOCKMAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SHIPMENT_SUPPLIER">
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="1" />
+          <End Role="SHIPMENT" Type="Self.SHIPMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUPPLIER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SHIPMENT">
+              <PropertyRef Name="ID_STOCKMAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUPPLIER_TYPE_SUPPLIER">
+          <End Role="TYPE_SUPPLIER" Type="Self.TYPE_SUPPLIER" Multiplicity="1" />
+          <End Role="SUPPLIER" Type="Self.SUPPLIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TYPE_SUPPLIER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SUPPLIER">
+              <PropertyRef Name="ID_TYPE_SUPPLIER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="APPLICATION">
+          <End Role="OFFERS" Type="Self.OFFERS" Multiplicity="*" />
+          <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="*" />
+        </Association>
+        <Association Name="INDUSRY_MASTER">
+          <End Role="INDUSTRY" Type="Self.INDUSTRY" Multiplicity="*" />
+          <End Role="MASTER_INDUSTRY" Type="Self.MASTER_INDUSTRY" Multiplicity="*" />
+        </Association>
+        <Association Name="INDUSTRY_ANALYST">
+          <End Role="ANALYST" Type="Self.ANALYST" Multiplicity="*" />
+          <End Role="INDUSTRY" Type="Self.INDUSTRY" Multiplicity="*" />
+        </Association>
+        <Association Name="INDUSTRY_MANAGER">
+          <End Role="INDUSTRY" Type="Self.INDUSTRY" Multiplicity="*" />
+          <End Role="MANAGER" Type="Self.MANAGER" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="WorldSkilEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AGENT" EntityType="Self.AGENT" />
+          <EntitySet Name="ANALYST" EntityType="Self.ANALYST" />
+          <EntitySet Name="DOORS" EntityType="Self.DOORS" />
+          <EntitySet Name="EMAIL" EntityType="Self.EMAIL" />
+          <EntitySet Name="HISTORY" EntityType="Self.HISTORY" />
+          <EntitySet Name="HISTORY_SUPPLIER" EntityType="Self.HISTORY_SUPPLIER" />
+          <EntitySet Name="INDUSTRY" EntityType="Self.INDUSTRY" />
+          <EntitySet Name="MANAGER" EntityType="Self.MANAGER" />
+          <EntitySet Name="MASTER_INDUSTRY" EntityType="Self.MASTER_INDUSTRY" />
+          <EntitySet Name="MATERIAL" EntityType="Self.MATERIAL" />
+          <EntitySet Name="OFFERS" EntityType="Self.OFFERS" />
+          <EntitySet Name="OPERATION" EntityType="Self.OPERATION" />
+          <EntitySet Name="ORDERS" EntityType="Self.ORDERS" />
+          <EntitySet Name="PHONE" EntityType="Self.PHONE" />
+          <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" />
+          <EntitySet Name="SCHEDULE" EntityType="Self.SCHEDULE" />
+          <EntitySet Name="SELL_PLACE" EntityType="Self.SELL_PLACE" />
+          <EntitySet Name="SHIPMENT" EntityType="Self.SHIPMENT" />
+          <EntitySet Name="STANDART" EntityType="Self.STANDART" />
+          <EntitySet Name="STOCKMAN" EntityType="Self.STOCKMAN" />
+          <EntitySet Name="SUPPLIER" EntityType="Self.SUPPLIER" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TURNSTILE" EntityType="Self.TURNSTILE" />
+          <EntitySet Name="TYPE_AGENT" EntityType="Self.TYPE_AGENT" />
+          <EntitySet Name="TYPE_MATERIAL" EntityType="Self.TYPE_MATERIAL" />
+          <EntitySet Name="TYPE_PRODUCT" EntityType="Self.TYPE_PRODUCT" />
+          <EntitySet Name="TYPE_SUPPLIER" EntityType="Self.TYPE_SUPPLIER" />
+          <EntitySet Name="UNIT_OF_MEASUREMENT" EntityType="Self.UNIT_OF_MEASUREMENT" />
+          <AssociationSet Name="FK_AGENT_SELL_PLACE" Association="Self.FK_AGENT_SELL_PLACE">
+            <End Role="SELL_PLACE" EntitySet="SELL_PLACE" />
+            <End Role="AGENT" EntitySet="AGENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AGENT_TYPE_AGENT" Association="Self.FK_AGENT_TYPE_AGENT">
+            <End Role="TYPE_AGENT" EntitySet="TYPE_AGENT" />
+            <End Role="AGENT" EntitySet="AGENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMAIL_AGENT" Association="Self.FK_EMAIL_AGENT">
+            <End Role="AGENT" EntitySet="AGENT" />
+            <End Role="EMAIL" EntitySet="EMAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORY_AGENT" Association="Self.FK_HISTORY_AGENT">
+            <End Role="AGENT" EntitySet="AGENT" />
+            <End Role="HISTORY" EntitySet="HISTORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OFFERS_AGENT" Association="Self.FK_OFFERS_AGENT">
+            <End Role="AGENT" EntitySet="AGENT" />
+            <End Role="OFFERS" EntitySet="OFFERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHONE_AGENT" Association="Self.FK_PHONE_AGENT">
+            <End Role="AGENT" EntitySet="AGENT" />
+            <End Role="PHONE" EntitySet="PHONE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ANALYST_HISTORY" Association="Self.FK_ANALYST_HISTORY">
+            <End Role="HISTORY" EntitySet="HISTORY" />
+            <End Role="ANALYST" EntitySet="ANALYST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOORS_INDUSTRY" Association="Self.FK_DOORS_INDUSTRY">
+            <End Role="INDUSTRY" EntitySet="INDUSTRY" />
+            <End Role="DOORS" EntitySet="DOORS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORY_SUPPLIER_MATERIAL" Association="Self.FK_HISTORY_SUPPLIER_MATERIAL">
+            <End Role="MATERIAL" EntitySet="MATERIAL" />
+            <End Role="HISTORY_SUPPLIER" EntitySet="HISTORY_SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORY_SUPPLIER_SUPPLIER" Association="Self.FK_HISTORY_SUPPLIER_SUPPLIER">
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+            <End Role="HISTORY_SUPPLIER" EntitySet="HISTORY_SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TURNSTILE_INDUSTRY" Association="Self.FK_TURNSTILE_INDUSTRY">
+            <End Role="INDUSTRY" EntitySet="INDUSTRY" />
+            <End Role="TURNSTILE" EntitySet="TURNSTILE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDERS_MANAGER" Association="Self.FK_ORDERS_MANAGER">
+            <End Role="MANAGER" EntitySet="MANAGER" />
+            <End Role="ORDERS" EntitySet="ORDERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MASTER_INDUSTRY_SCHEDULE" Association="Self.FK_MASTER_INDUSTRY_SCHEDULE">
+            <End Role="SCHEDULE" EntitySet="SCHEDULE" />
+            <End Role="MASTER_INDUSTRY" EntitySet="MASTER_INDUSTRY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATERIAL_PRODUCT" Association="Self.FK_MATERIAL_PRODUCT">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="MATERIAL" EntitySet="MATERIAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATERIAL_SUPPLIER" Association="Self.FK_MATERIAL_SUPPLIER">
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+            <End Role="MATERIAL" EntitySet="MATERIAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATERIAL_TYPE_MATERIAL" Association="Self.FK_MATERIAL_TYPE_MATERIAL">
+            <End Role="TYPE_MATERIAL" EntitySet="TYPE_MATERIAL" />
+            <End Role="MATERIAL" EntitySet="MATERIAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MATERIAL_UNIT_OF_MEASUREMENT" Association="Self.FK_MATERIAL_UNIT_OF_MEASUREMENT">
+            <End Role="UNIT_OF_MEASUREMENT" EntitySet="UNIT_OF_MEASUREMENT" />
+            <End Role="MATERIAL" EntitySet="MATERIAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SHIPMENT_MATERIAL" Association="Self.FK_SHIPMENT_MATERIAL">
+            <End Role="MATERIAL" EntitySet="MATERIAL" />
+            <End Role="SHIPMENT" EntitySet="SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OFFERS_PRODUCT" Association="Self.FK_OFFERS_PRODUCT">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="OFFERS" EntitySet="OFFERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCT_STANDART" Association="Self.FK_PRODUCT_STANDART">
+            <End Role="STANDART" EntitySet="STANDART" />
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCT_TYPE_PRODUCT" Association="Self.FK_PRODUCT_TYPE_PRODUCT">
+            <End Role="TYPE_PRODUCT" EntitySet="TYPE_PRODUCT" />
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SHIPMENT_STOCKMAN" Association="Self.FK_SHIPMENT_STOCKMAN">
+            <End Role="STOCKMAN" EntitySet="STOCKMAN" />
+            <End Role="SHIPMENT" EntitySet="SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SHIPMENT_SUPPLIER" Association="Self.FK_SHIPMENT_SUPPLIER">
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+            <End Role="SHIPMENT" EntitySet="SHIPMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUPPLIER_TYPE_SUPPLIER" Association="Self.FK_SUPPLIER_TYPE_SUPPLIER">
+            <End Role="TYPE_SUPPLIER" EntitySet="TYPE_SUPPLIER" />
+            <End Role="SUPPLIER" EntitySet="SUPPLIER" />
+          </AssociationSet>
+          <AssociationSet Name="APPLICATION" Association="Self.APPLICATION">
+            <End Role="OFFERS" EntitySet="OFFERS" />
+            <End Role="ORDERS" EntitySet="ORDERS" />
+          </AssociationSet>
+          <AssociationSet Name="INDUSRY_MASTER" Association="Self.INDUSRY_MASTER">
+            <End Role="INDUSTRY" EntitySet="INDUSTRY" />
+            <End Role="MASTER_INDUSTRY" EntitySet="MASTER_INDUSTRY" />
+          </AssociationSet>
+          <AssociationSet Name="INDUSTRY_ANALYST" Association="Self.INDUSTRY_ANALYST">
+            <End Role="ANALYST" EntitySet="ANALYST" />
+            <End Role="INDUSTRY" EntitySet="INDUSTRY" />
+          </AssociationSet>
+          <AssociationSet Name="INDUSTRY_MANAGER" Association="Self.INDUSTRY_MANAGER">
+            <End Role="INDUSTRY" EntitySet="INDUSTRY" />
+            <End Role="MANAGER" EntitySet="MANAGER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище WorldSkilModelContainer" CdmEntityContainer="WorldSkilEntities">
+          <EntitySetMapping Name="AGENT">
+            <EntityTypeMapping TypeName="WorldSkilModel.AGENT">
+              <MappingFragment StoreEntitySet="AGENT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME_COMPANY" ColumnName="NAME_COMPANY" />
+                <ScalarProperty Name="ID_TYPE" ColumnName="ID_TYPE" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="KPP" ColumnName="KPP" />
+                <ScalarProperty Name="DIRECTOR" ColumnName="DIRECTOR" />
+                <ScalarProperty Name="LOGO" ColumnName="LOGO" />
+                <ScalarProperty Name="ID_SELL_PLACE" ColumnName="ID_SELL_PLACE" />
+                <ScalarProperty Name="PRIORITY" ColumnName="PRIORITY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ANALYST">
+            <EntityTypeMapping TypeName="WorldSkilModel.ANALYST">
+              <MappingFragment StoreEntitySet="ANALYST">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID_HISTORY" ColumnName="ID_HISTORY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOORS">
+            <EntityTypeMapping TypeName="WorldSkilModel.DOORS">
+              <MappingFragment StoreEntitySet="DOORS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID_INDUSTRY" ColumnName="ID_INDUSTRY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMAIL">
+            <EntityTypeMapping TypeName="WorldSkilModel.EMAIL">
+              <MappingFragment StoreEntitySet="EMAIL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="ID_AGENT" ColumnName="ID_AGENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HISTORY">
+            <EntityTypeMapping TypeName="WorldSkilModel.HISTORY">
+              <MappingFragment StoreEntitySet="HISTORY">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID_AGENT" ColumnName="ID_AGENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HISTORY_SUPPLIER">
+            <EntityTypeMapping TypeName="WorldSkilModel.HISTORY_SUPPLIER">
+              <MappingFragment StoreEntitySet="HISTORY_SUPPLIER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_SUPPLIER" ColumnName="ID_SUPPLIER" />
+                <ScalarProperty Name="ID_MATERIAL" ColumnName="ID_MATERIAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INDUSTRY">
+            <EntityTypeMapping TypeName="WorldSkilModel.INDUSTRY">
+              <MappingFragment StoreEntitySet="INDUSTRY">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MANAGER">
+            <EntityTypeMapping TypeName="WorldSkilModel.MANAGER">
+              <MappingFragment StoreEntitySet="MANAGER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MASTER_INDUSTRY">
+            <EntityTypeMapping TypeName="WorldSkilModel.MASTER_INDUSTRY">
+              <MappingFragment StoreEntitySet="MASTER_INDUSTRY">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID_SCHEDULE" ColumnName="ID_SCHEDULE" />
+                <ScalarProperty Name="FAMILY" ColumnName="FAMILY" />
+                <ScalarProperty Name="PROBLEM" ColumnName="PROBLEM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MATERIAL">
+            <EntityTypeMapping TypeName="WorldSkilModel.MATERIAL">
+              <MappingFragment StoreEntitySet="MATERIAL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID_TYPE_MATERIAL" ColumnName="ID_TYPE_MATERIAL" />
+                <ScalarProperty Name="ID_SUPPLIER" ColumnName="ID_SUPPLIER" />
+                <ScalarProperty Name="QUANTITY_PACKAGING" ColumnName="QUANTITY_PACKAGING" />
+                <ScalarProperty Name="ID_UNIT_OF_MEASUREMENT" ColumnName="ID_UNIT_OF_MEASUREMENT" />
+                <ScalarProperty Name="QUANTITY_STOREHOSE" ColumnName="QUANTITY_STOREHOSE" />
+                <ScalarProperty Name="MIN_QUANTITY" ColumnName="MIN_QUANTITY" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="OPERATION" ColumnName="OPERATION" />
+                <ScalarProperty Name="ID_PRODUCT" ColumnName="ID_PRODUCT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OFFERS">
+            <EntityTypeMapping TypeName="WorldSkilModel.OFFERS">
+              <MappingFragment StoreEntitySet="OFFERS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_AGENT" ColumnName="ID_AGENT" />
+                <ScalarProperty Name="ID_PRODUCT" ColumnName="ID_PRODUCT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OPERATION">
+            <EntityTypeMapping TypeName="WorldSkilModel.OPERATION">
+              <MappingFragment StoreEntitySet="OPERATION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDERS">
+            <EntityTypeMapping TypeName="WorldSkilModel.ORDERS">
+              <MappingFragment StoreEntitySet="ORDERS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DATA" ColumnName="DATA" />
+                <ScalarProperty Name="ID_MANAGER" ColumnName="ID_MANAGER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHONE">
+            <EntityTypeMapping TypeName="WorldSkilModel.PHONE">
+              <MappingFragment StoreEntitySet="PHONE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NUMBER" ColumnName="NUMBER" />
+                <ScalarProperty Name="ID_AGENT" ColumnName="ID_AGENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCT">
+            <EntityTypeMapping TypeName="WorldSkilModel.PRODUCT">
+              <MappingFragment StoreEntitySet="PRODUCT">
+                <ScalarProperty Name="ARTICLE" ColumnName="ARTICLE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID_TYPE_PRODUCT" ColumnName="ID_TYPE_PRODUCT" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+                <ScalarProperty Name="MIN_PRICE" ColumnName="MIN_PRICE" />
+                <ScalarProperty Name="SIZE" ColumnName="SIZE" />
+                <ScalarProperty Name="WEIGHT_ORIGINAL" ColumnName="WEIGHT_ORIGINAL" />
+                <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
+                <ScalarProperty Name="QUALITY_CERTIFICATE" ColumnName="QUALITY_CERTIFICATE" />
+                <ScalarProperty Name="ID_STANDART" ColumnName="ID_STANDART" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SCHEDULE">
+            <EntityTypeMapping TypeName="WorldSkilModel.SCHEDULE">
+              <MappingFragment StoreEntitySet="SCHEDULE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="SHIFT" ColumnName="SHIFT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SELL_PLACE">
+            <EntityTypeMapping TypeName="WorldSkilModel.SELL_PLACE">
+              <MappingFragment StoreEntitySet="SELL_PLACE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SHIPMENT">
+            <EntityTypeMapping TypeName="WorldSkilModel.SHIPMENT">
+              <MappingFragment StoreEntitySet="SHIPMENT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_STOCKMAN" ColumnName="ID_STOCKMAN" />
+                <ScalarProperty Name="ID_SUPPLIER" ColumnName="ID_SUPPLIER" />
+                <ScalarProperty Name="ID_MATERIAL" ColumnName="ID_MATERIAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STANDART">
+            <EntityTypeMapping TypeName="WorldSkilModel.STANDART">
+              <MappingFragment StoreEntitySet="STANDART">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOCKMAN">
+            <EntityTypeMapping TypeName="WorldSkilModel.STOCKMAN">
+              <MappingFragment StoreEntitySet="STOCKMAN">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUPPLIER">
+            <EntityTypeMapping TypeName="WorldSkilModel.SUPPLIER">
+              <MappingFragment StoreEntitySet="SUPPLIER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="ID_TYPE_SUPPLIER" ColumnName="ID_TYPE_SUPPLIER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="WorldSkilModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TURNSTILE">
+            <EntityTypeMapping TypeName="WorldSkilModel.TURNSTILE">
+              <MappingFragment StoreEntitySet="TURNSTILE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID_INDUSTRY" ColumnName="ID_INDUSTRY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TYPE_AGENT">
+            <EntityTypeMapping TypeName="WorldSkilModel.TYPE_AGENT">
+              <MappingFragment StoreEntitySet="TYPE_AGENT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TYPE_MATERIAL">
+            <EntityTypeMapping TypeName="WorldSkilModel.TYPE_MATERIAL">
+              <MappingFragment StoreEntitySet="TYPE_MATERIAL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TYPE_PRODUCT">
+            <EntityTypeMapping TypeName="WorldSkilModel.TYPE_PRODUCT">
+              <MappingFragment StoreEntitySet="TYPE_PRODUCT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TYPE_SUPPLIER">
+            <EntityTypeMapping TypeName="WorldSkilModel.TYPE_SUPPLIER">
+              <MappingFragment StoreEntitySet="TYPE_SUPPLIER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UNIT_OF_MEASUREMENT">
+            <EntityTypeMapping TypeName="WorldSkilModel.UNIT_OF_MEASUREMENT">
+              <MappingFragment StoreEntitySet="UNIT_OF_MEASUREMENT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="APPLICATION" TypeName="WorldSkilModel.APPLICATION" StoreEntitySet="APPLICATION">
+            <EndProperty Name="OFFERS">
+              <ScalarProperty Name="ID" ColumnName="ID_OFFERS" />
+            </EndProperty>
+            <EndProperty Name="ORDERS">
+              <ScalarProperty Name="ID" ColumnName="ID_ORDERS" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="INDUSRY_MASTER" TypeName="WorldSkilModel.INDUSRY_MASTER" StoreEntitySet="INDUSRY_MASTER">
+            <EndProperty Name="INDUSTRY">
+              <ScalarProperty Name="ID" ColumnName="ID_INDUSTRY" />
+            </EndProperty>
+            <EndProperty Name="MASTER_INDUSTRY">
+              <ScalarProperty Name="ID" ColumnName="ID_MASTER" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="INDUSTRY_ANALYST" TypeName="WorldSkilModel.INDUSTRY_ANALYST" StoreEntitySet="INDUSTRY_ANALYST">
+            <EndProperty Name="ANALYST">
+              <ScalarProperty Name="ID" ColumnName="ID_ANALYST" />
+            </EndProperty>
+            <EndProperty Name="INDUSTRY">
+              <ScalarProperty Name="ID" ColumnName="ID_INDUSTRY" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="INDUSTRY_MANAGER" TypeName="WorldSkilModel.INDUSTRY_MANAGER" StoreEntitySet="INDUSTRY_MANAGER">
+            <EndProperty Name="INDUSTRY">
+              <ScalarProperty Name="ID" ColumnName="ID_INDUSTRY" />
+            </EndProperty>
+            <EndProperty Name="MANAGER">
+              <ScalarProperty Name="ID" ColumnName="ID_MANAGER" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
